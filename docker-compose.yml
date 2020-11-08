@@ -1,0 +1,19 @@
+version: "3"
+services:
+  base-be-ts:
+    container_name: base-be-ts-container
+    restart: always
+    environment:
+      PORT: ${PORT}
+      MONGODB_URL: mongodb://mongo:${PORT_MONGODB}/test
+    build: .
+    ports:
+      - ${PORT}:${PORT}
+    links:
+      - mongo
+  mongo:
+    container_name: mongo-container
+    image: mongo
+    ports:
+      - ${PORT_MONGODB}:${PORT_MONGODB}
+  
