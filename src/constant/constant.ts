@@ -3,4 +3,20 @@ const SCHEMA_NAME = {
   TODOS: 'Todos'
 };
 
-export { SCHEMA_NAME };
+const DEVELOPMENT = 'development';
+const PRODUCT = 'product';
+
+const HttpCode = {
+  OK: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
+  NO_CONTENT: 204,
+  NOT_MODIFIED: 304,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  CONFLICT: 409,
+  INTERNAL_SERVER_ERROR: 500
+};
+
+export { SCHEMA_NAME, HttpCode, DEVELOPMENT, PRODUCT };
