@@ -9,6 +9,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "typecheck": "tsc --project tsconfig.json --noEmit --skipLibCheck",
     "dev": "nodemon -r tsconfig-paths/register ./src/server.ts",
     "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./build/server.js",
     "docker-build": "docker-compose build",
