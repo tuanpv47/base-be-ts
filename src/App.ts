@@ -5,7 +5,7 @@ import { handleErrors } from 'utils/error.middle';
 class App {
   public app: express.Application;
   public port: number;
-  constructor(controllers: Array<any>, port: any) {
+  constructor(controllers: Array<any>, port: number) {
     this.app = express();
     this.port = port;
     this.app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,9 +25,9 @@ class App {
     //* Error handling
     this.app.use(handleErrors);
   }
-  public listen() {
+  public listen(): void {
     this.app.listen(this.port, () => {
-      console.log(`App listening on the port ${this.port}`);
+      // console.log(`App listening on the port ${this.port}`);
     });
   }
   private initControllers(controllers: any) {

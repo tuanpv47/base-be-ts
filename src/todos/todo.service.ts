@@ -4,7 +4,6 @@ import { MongoDB } from 'database/mongodb';
 import { HttpCode } from 'constant/constant';
 
 export class TodoService implements ITodoService {
-  constructor() {}
   async findAll(filter: any): Promise<any> {
     const conn = await MongoDB.connect();
     const data = await todoModel.find({}).lean();

@@ -24,7 +24,7 @@ export const handleErrors = (err: Error, req: Request, res: Response, next: Next
   }
 };
 
-export const RouteWrapperHOC = (fn: Function) => {
+export const RouteWrapperHOC = (fn: any) => {
   return (req: Request, res: Response, next: NextFunction) => {
     fn(req, res, next).catch((err: Error) => next(err));
   };

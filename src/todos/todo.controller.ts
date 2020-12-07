@@ -1,4 +1,4 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 import { RouteWrapperHOC } from 'utils/error.middle';
 import { TodoService } from './todo.service';
 
