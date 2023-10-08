@@ -20,8 +20,8 @@ lifecycle:
 
 service:
   name: node-ex-service
-  port: 3000
-  targetPort: 3000
+  port: 5000
+  targetPort: 5000
   nodePort: 30046
 
 resources:
