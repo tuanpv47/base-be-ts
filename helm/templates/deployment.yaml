@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.spec.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  strategy:
+    rollingUpdate:
+      maxSurge: {{ .Values.spec.strategy.rollingUpdate.maxSurge }}
+      maxUnavailable: {{ .Values.spec.strategy.rollingUpdate.maxUnavailable }}
+    type: {{ .Values.spec.strategy.type }}
+  template:
+    metadata:
+      annotations:
+        timestamp: {{ now | quote }}
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          name: {{ .Release.Name }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          ports:
+            - containerPort: {{ .Values.deployment.containerPort }}
+              protocol: {{ .Values.deployment.containerProtocol }}
