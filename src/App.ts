@@ -12,7 +12,7 @@ class App {
     this.app.use(bodyParser.json());
 
     this.app.get('/', (req: Request, res: Response) => {
-      return res.status(200).send(`Hello world! | ${new Date()}`);
+      return res.status(200).send(`Hello world! argocd deployed | ${new Date()}`);
     });
     this.initControllers(controllers);
     this.app.all('*', (req: Request, res: Response) => {
