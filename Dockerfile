@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # app will run on port in .env
-EXPOSE $PORT
+EXPOSE 3000
 
 # compile files .ts to .js
 RUN npm run build
