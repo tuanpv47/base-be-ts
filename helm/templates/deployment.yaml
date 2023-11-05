@@ -30,3 +30,8 @@ spec:
           ports:
             - containerPort: {{ .Values.deployment.containerPort }}
               protocol: {{ .Values.deployment.containerProtocol }}
+          env:
+            {{- range .Values.envValues }}
+            - name: {{ .name }}
+              value: {{ .value }}
+            {{- end }} 
