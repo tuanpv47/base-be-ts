@@ -31,7 +31,8 @@ spec:
             - containerPort: {{ .Values.deployment.containerPort }}
               protocol: {{ .Values.deployment.containerProtocol }}
           env:
-            {{- range .Values.envValues }}
-            - name: {{ .name }}
-              value: {{ .valueFrom }}
-            {{- end }} 
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            
