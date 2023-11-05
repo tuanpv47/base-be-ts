@@ -9,7 +9,7 @@ spec:
 image:
   repository: localhost:32000/node-ex
   pullPolicy: Always
-  tag: develop
+  tag: 181df82
 
 deployment:
   containerPort: 80
