@@ -14,6 +14,9 @@ class App {
     this.app.get('/', (req: Request, res: Response) => {
       return res.status(200).send(`Hello world! argocd deployed | ${new Date()}`);
     });
+    this.app.get('/env', (req: Request, res: Response) => {
+      return res.status(200).send(JSON.stringify(process.env, null, 2));
+    });
     this.initControllers(controllers);
     this.app.all('*', (req: Request, res: Response) => {
       return res.json({
