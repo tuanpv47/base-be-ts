@@ -1,5 +1,5 @@
 spec:
-  replicaCount: 5
+  replicaCount: 8
   strategy:
     rollingUpdate:
       maxSurge: 1
